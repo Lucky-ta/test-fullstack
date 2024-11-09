@@ -11,7 +11,7 @@ padding: 0;
     font-family: Sans-Serif ;
     color: #525252;
     height: 100dvh;
-    overflow-y: hidden;
+    overflow-x: hidden;
   }
 
   .container {

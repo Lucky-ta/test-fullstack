@@ -1,5 +1,7 @@
 import { Button, ClientCard, IClientCard, Layout } from "components";
 
+import { ROUTES } from "settings";
+
 import * as S from "./styles";
 
 export function HomePage() {
@@ -66,7 +68,11 @@ export function HomePage() {
             <span>Escolha um cliente para visualizar os detalhes</span>
           </div>
 
-          <Button type="button" text="Novo cliente" />
+          <Button
+            type="button"
+            text="Novo cliente"
+            href={ROUTES.createClient}
+          />
         </div>
 
         <div className="list">

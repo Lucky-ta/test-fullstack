@@ -4,7 +4,7 @@ export const Layout = styled("div")`
   width: 100%;
 
   main {
-    padding: 100px 0;
+    padding: 80px 0;
   }
 
   .title-box {

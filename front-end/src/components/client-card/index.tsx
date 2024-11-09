@@ -1,6 +1,7 @@
 import { Button } from "components";
 
 import * as S from "./styles";
+import { ROUTES } from "settings";
 
 export interface IClientCard {
   id: number;
@@ -15,7 +16,14 @@ export interface IClientCard {
   };
 }
 
-export function ClientCard({ name, email, cpf, phone, status }: IClientCard) {
+export function ClientCard({
+  id,
+  name,
+  email,
+  cpf,
+  phone,
+  status,
+}: IClientCard) {
   return (
     <S.ClientCard>
       <div>
@@ -35,7 +43,14 @@ export function ClientCard({ name, email, cpf, phone, status }: IClientCard) {
         </div>
       )}
 
-      <Button type="button" text="Editar" invertColors />
+      {id && (
+        <Button
+          type="button"
+          text="Editar"
+          invertColors
+          href={ROUTES.eitClient + `/${id}`}
+        />
+      )}
     </S.ClientCard>
   );
 }
