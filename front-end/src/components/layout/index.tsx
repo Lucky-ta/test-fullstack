@@ -2,8 +2,9 @@ import React, { ReactNode } from "react";
 
 import { Header } from "./header";
 
+import { Icon, Container } from "components";
+
 import * as S from "./styles";
-import { Container } from "components/data";
 
 export function Layout({ children }: { children: ReactNode }) {
   return (
@@ -11,7 +12,15 @@ export function Layout({ children }: { children: ReactNode }) {
       <Header />
 
       <main>
-        <Container>{children}</Container>
+        <Container>
+          <div className="title-box">
+            <Icon name="IconUser" />
+
+            <h1>Painel de clientes</h1>
+          </div>
+
+          {children}
+        </Container>
       </main>
     </S.Layout>
   );

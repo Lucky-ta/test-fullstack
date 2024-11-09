@@ -10,6 +10,8 @@ padding: 0;
   body {
     font-family: Sans-Serif ;
     color: #525252;
+    height: 100dvh;
+    overflow-y: hidden;
   }
 
   .container {
