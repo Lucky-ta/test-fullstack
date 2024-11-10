@@ -1,12 +1,28 @@
-import { Button, Input, InputMaskField, Layout, Select } from "components";
-
-import * as S from "./styles";
 import { Form, Formik } from "formik";
 
+import { Button, Input, InputMaskField, Layout, Select } from "components";
+
+import { IUser } from "interfaces";
+
+import * as S from "./styles";
+
 export function CreateClientPage() {
-  async function handleSubmit(payload) {
+  async function handleSubmit(payload: IUser) {
     console.log(payload);
   }
+
+  const initialValues: IUser = {
+    id: 0,
+    name: "",
+    email: "",
+    cpf: "",
+    phone: "",
+    status: {
+      id: 0,
+      color: "",
+      text: "",
+    },
+  };
 
   return (
     <Layout>
@@ -17,7 +33,7 @@ export function CreateClientPage() {
           <span>Informe os campos a seguir para criar um novo usuário</span>
         </div>
 
-        <Formik onSubmit={handleSubmit} initialValues={{}}>
+        <Formik onSubmit={handleSubmit} initialValues={initialValues}>
           <Form>
             <Input name="name" placeholder="Nome" />
 

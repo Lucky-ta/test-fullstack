@@ -1,13 +1,15 @@
-import { Button, ClientCard, IClientCard, Layout } from "components";
+import { Button, ClientCard, Layout } from "components";
 
 import { ROUTES } from "settings";
+
+import { IUser } from "interfaces";
 
 import * as S from "./styles";
 
 export function HomePage() {
   const qtdClients = 30;
 
-  const cardList: IClientCard[] = [
+  const cardList: IUser[] = [
     {
       id: 1,
       cpf: "859.582.550-53",

@@ -1,29 +1,11 @@
 import { Button } from "components";
 
-import * as S from "./styles";
 import { ROUTES } from "settings";
+import { IUser } from "interfaces";
 
-export interface IClientCard {
-  id: number;
-  name: string;
-  email: string;
-  cpf: string;
-  phone: string;
-  status: {
-    id: number;
-    color: string;
-    text: string;
-  };
-}
+import * as S from "./styles";
 
-export function ClientCard({
-  id,
-  name,
-  email,
-  cpf,
-  phone,
-  status,
-}: IClientCard) {
+export function ClientCard({ id, name, email, cpf, phone, status }: IUser) {
   return (
     <S.ClientCard>
       <div>
