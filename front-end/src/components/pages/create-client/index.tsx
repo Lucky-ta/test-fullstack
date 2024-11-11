@@ -2,30 +2,34 @@ import { useRouter } from "next/navigation";
 
 import { Form, Formik } from "formik";
 
+import { schema } from "./schema";
 import { Button, Input, InputMaskField, Layout, Select } from "components";
 
-import { IUser } from "interfaces";
-
 import * as S from "./styles";
+
+interface IPayload {
+  id: number;
+  name: string;
+  email: string;
+  cpf: string;
+  phone: string;
+  status: string | number;
+}
 
 export function CreateClientPage() {
   const router = useRouter();
 
-  async function handleSubmit(payload: IUser) {
+  async function handleSubmit(payload: IPayload) {
     console.log(payload);
   }
 
-  const initialValues: IUser = {
+  const initialValues: IPayload = {
     id: 0,
     name: "",
     email: "",
     cpf: "",
     phone: "",
-    status: {
-      id: 0,
-      color: "",
-      text: "",
-    },
+    status: 1,
   };
 
   return (
@@ -37,7 +41,11 @@ export function CreateClientPage() {
           <span>Informe os campos a seguir para criar um novo usuário</span>
         </div>
 
-        <Formik onSubmit={handleSubmit} initialValues={initialValues}>
+        <Formik
+          onSubmit={handleSubmit}
+          validationSchema={schema}
+          initialValues={initialValues}
+        >
           <Form>
             <Input name="name" placeholder="Nome" />
 
@@ -61,7 +69,11 @@ export function CreateClientPage() {
               options={[
                 {
                   label: "teste",
-                  value: "teste",
+                  value: 1,
+                },
+                {
+                  label: "teste2",
+                  value: 2,
                 },
               ]}
             />

@@ -6,7 +6,7 @@ export interface IUser {
   phone: string;
   status: {
     id: number;
-    color: string;
+    color?: string;
     text: string;
   };
 }

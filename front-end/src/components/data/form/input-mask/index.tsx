@@ -1,4 +1,4 @@
-import { Field, FieldProps } from "formik";
+import { Field, FieldProps, ErrorMessage } from "formik";
 import { InputMask } from "@react-input/mask";
 import { HTMLInputTypeAttribute } from "react";
 
@@ -30,9 +30,7 @@ export function InputMaskField({ mask, label, ...props }: IInputProps) {
             }}
             onBlur={() => form.setFieldTouched(props.name, true)}
           />
-          {form.touched[props.name] && form.errors[props.name] && (
-            <div className="error">{form.errors[props.name]}</div>
-          )}
+          <ErrorMessage name={props.name} component="div" className="error" />
         </div>
       )}
     </Field>

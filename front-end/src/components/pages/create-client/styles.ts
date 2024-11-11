@@ -16,6 +16,11 @@ export const HomePage = styled("div")`
     flex-direction: column;
     gap: 20px;
 
+    .error {
+      font-size: 12px;
+      color: red;
+    }
+
     .actions {
       display: flex;
       justify-content: space-between;
