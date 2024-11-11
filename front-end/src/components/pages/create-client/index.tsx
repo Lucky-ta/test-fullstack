@@ -1,3 +1,5 @@
+import { useRouter } from "next/navigation";
+
 import { Form, Formik } from "formik";
 
 import { Button, Input, InputMaskField, Layout, Select } from "components";
@@ -7,6 +9,8 @@ import { IUser } from "interfaces";
 import * as S from "./styles";
 
 export function CreateClientPage() {
+  const router = useRouter();
+
   async function handleSubmit(payload: IUser) {
     console.log(payload);
   }
@@ -62,8 +66,15 @@ export function CreateClientPage() {
               ]}
             />
 
-            <Button text="Criar" type="submit" />
-            <Button text="Voltar" type="button" invertColors />
+            <div className="actions">
+              <Button text="Criar" type="submit" />
+              <Button
+                text="Voltar"
+                type="button"
+                invertColors
+                onClick={() => router.back()}
+              />
+            </div>
           </Form>
         </Formik>
       </S.HomePage>
