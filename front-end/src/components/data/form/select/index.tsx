@@ -16,7 +16,7 @@ export function Select(props: IInputProps) {
   return (
     <>
       {props.label && <label htmlFor={props.name}>{props.label}</label>}
-      <Field {...props} component="select" id={props.name}>
+      <Field {...props} component="select" id={props.name} placeholder="Status">
         {props?.options?.map((option) => (
           <option key={option.value} value={option.value}>
             {option.label}

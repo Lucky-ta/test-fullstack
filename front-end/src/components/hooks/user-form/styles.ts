@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const HomePage = styled("div")`
+export const ClientPage = styled("div")`
   .description {
     margin-bottom: 35px;
 

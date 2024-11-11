@@ -3,42 +3,55 @@ import { useRouter } from "next/navigation";
 import { Form, Formik } from "formik";
 
 import { schema } from "./schema";
-import { Button, Input, InputMaskField, Layout, Select } from "components";
+import { Button, Input, InputMaskField, Select } from "components";
+
+import { IUser } from "interfaces";
 
 import * as S from "./styles";
 
-interface IPayload {
-  id: number;
-  name: string;
-  email: string;
-  cpf: string;
-  phone: string;
+interface IPayload extends Omit<IUser, "status"> {
   status: string | number;
 }
 
-export function CreateClientPage() {
+const initialValue: IUser = {
+  cpf: "",
+  email: "",
+  id: 0,
+  name: "",
+  phone: "",
+  status: {
+    color: "",
+    id: 1,
+    text: "",
+  },
+};
+
+export function useUserForm({
+  initialData = initialValue,
+}: {
+  initialData?: IUser;
+}) {
   const router = useRouter();
 
   async function handleSubmit(payload: IPayload) {
-    console.log(payload);
+    console.log(initialData ? "Editar" : "Criar", payload);
   }
 
   const initialValues: IPayload = {
-    id: 0,
-    name: "",
-    email: "",
-    cpf: "",
-    phone: "",
-    status: 1,
+    ...initialData,
+    status: initialData?.status?.id || 0,
   };
 
-  return (
-    <Layout>
-      <S.HomePage>
+  return {
+    UserForm: (
+      <S.ClientPage>
         <div className="description">
-          <h2>Novo usuário</h2>
+          <h2>{initialData ? "Editar" : "Novo"} usuário</h2>
 
-          <span>Informe os campos a seguir para criar um novo usuário</span>
+          <span>
+            Informe os campos a seguir para{" "}
+            {initialData ? "editar" : "criar um"} novo usuário
+          </span>
         </div>
 
         <Formik
@@ -79,7 +92,7 @@ export function CreateClientPage() {
             />
 
             <div className="actions">
-              <Button text="Criar" type="submit" />
+              <Button text={initialData ? "Editar" : "Criar"} type="submit" />
               <Button
                 text="Voltar"
                 type="button"
@@ -89,7 +102,7 @@ export function CreateClientPage() {
             </div>
           </Form>
         </Formik>
-      </S.HomePage>
-    </Layout>
-  );
+      </S.ClientPage>
+    ),
+  };
 }

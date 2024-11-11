@@ -7,8 +7,6 @@ import { IUser } from "interfaces";
 import * as S from "./styles";
 
 export function HomePage() {
-  const qtdClients = 30;
-
   const cardList: IUser[] = [
     {
       id: 1,
@@ -83,7 +81,7 @@ export function HomePage() {
           ))}
         </div>
 
-        <p>Exibindo {qtdClients} clientes</p>
+        <p>Exibindo {cardList.length} clientes</p>
       </S.HomePage>
     </Layout>
   );
