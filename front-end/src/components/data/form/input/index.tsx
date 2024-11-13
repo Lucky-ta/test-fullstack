@@ -1,3 +1,5 @@
+"use client";
+
 import { Field, ErrorMessage } from "formik";
 import { HTMLInputTypeAttribute } from "react";
 

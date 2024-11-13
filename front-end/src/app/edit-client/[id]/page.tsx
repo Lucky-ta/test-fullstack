@@ -1,23 +1,19 @@
-"use client";
+"use server";
 
-import { Layout, useUserForm } from "components";
+import { Layout, UserForm } from "components";
+import { GetServerSidePropsContext } from "next";
 
-import { IUser } from "interfaces";
+import { api } from "utils";
 
-export default function EditClient() {
-  const initialData: IUser = {
-    cpf: "859.582.550-53",
-    email: "asfa@gmail.com",
-    id: 1,
-    name: "Lucas Maieski",
-    phone: "(51)995779312",
-    status: {
-      color: "red",
-      id: 1,
-      text: "Inativo",
-    },
-  };
-  const { UserForm } = useUserForm({ initialData });
+export default async function EditClient(ctx: GetServerSidePropsContext) {
+  const id = ctx?.params?.id;
 
-  return <Layout>{UserForm}</Layout>;
+  const result = await api.get(`client/${id}`);
+  const client = result.data;
+
+  return (
+    <Layout>
+      <UserForm initialData={client} />
+    </Layout>
+  );
 }

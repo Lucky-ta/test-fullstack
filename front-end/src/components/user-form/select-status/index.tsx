@@ -14,7 +14,7 @@ export function SelectStatus() {
 
   return (
     <Select
-      name="status"
+      name="statusId"
       placeholder="Status"
       options={
         data?.map((status) => ({

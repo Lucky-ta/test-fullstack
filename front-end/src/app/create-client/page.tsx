@@ -1,9 +1,11 @@
 "use client";
 
-import { Layout, useUserForm } from "components";
+import { Layout, UserForm } from "components";
 
 export default function CreateClient() {
-  const { UserForm } = useUserForm({});
-
-  return <Layout>{UserForm}</Layout>;
+  return (
+    <Layout>
+      <UserForm />
+    </Layout>
+  );
 }

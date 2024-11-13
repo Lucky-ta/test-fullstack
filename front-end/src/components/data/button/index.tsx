@@ -1,3 +1,5 @@
+"use client";
+
 import { ButtonHTMLAttributes } from "react";
 import Link from "next/link";
 import * as S from "./styles";

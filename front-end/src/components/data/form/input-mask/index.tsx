@@ -1,3 +1,5 @@
+"use client";
+
 import { Field, FieldProps, ErrorMessage } from "formik";
 import { InputMask } from "@react-input/mask";
 import { HTMLInputTypeAttribute } from "react";

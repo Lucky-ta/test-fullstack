@@ -1,3 +1,5 @@
+"use client";
+
 import { Button, ClientCard, Layout } from "components";
 
 import { ROUTES } from "settings";
@@ -6,58 +8,7 @@ import { IUser } from "interfaces";
 
 import * as S from "./styles";
 
-export function HomePage() {
-  const cardList: IUser[] = [
-    {
-      id: 1,
-      cpf: "859.582.550-53",
-      email: "dfsasf@gmail.com",
-      name: "Lucas",
-      phone: "(51) 995779312",
-      status: {
-        color: "#4aad5b",
-        id: 1,
-        text: "Ativo",
-      },
-    },
-    {
-      id: 2,
-      cpf: "859.582.550-53",
-      email: "dfsasf@gmail.com",
-      name: "Lucas",
-      phone: "(51) 995779312",
-      status: {
-        color: "#d13541",
-        id: 1,
-        text: "Inativo",
-      },
-    },
-    {
-      id: 3,
-      cpf: "859.582.550-53",
-      email: "dfsasf@gmail.com",
-      name: "Lucas",
-      phone: "(51) 995779312",
-      status: {
-        color: "#d3a710",
-        id: 1,
-        text: "Aguardando ativação",
-      },
-    },
-    {
-      id: 4,
-      cpf: "859.582.550-53",
-      email: "dfsasf@gmail.com",
-      name: "Lucas",
-      phone: "(51) 995779312",
-      status: {
-        color: "#d2d2d2",
-        id: 1,
-        text: "Desativado",
-      },
-    },
-  ];
-
+export function HomePage({ clients }: { clients: IUser[] }) {
   return (
     <Layout>
       <S.HomePage>
@@ -76,12 +27,12 @@ export function HomePage() {
         </div>
 
         <div className="list">
-          {cardList.map((card) => (
+          {clients.map((card) => (
             <ClientCard key={card.id} {...card} />
           ))}
         </div>
 
-        <p>Exibindo {cardList.length} clientes</p>
+        <p>Exibindo {clients.length} clientes</p>
       </S.HomePage>
     </Layout>
   );

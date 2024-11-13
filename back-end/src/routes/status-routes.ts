@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { connect } from "../models/status-model";
+import { connect } from "../models/init-db";
 
 const router = Router();
 

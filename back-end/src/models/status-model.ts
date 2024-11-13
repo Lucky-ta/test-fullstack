@@ -1,30 +1,24 @@
-import sqlite3 from "sqlite3";
-import { open } from "sqlite";
+import { Database } from "sqlite";
 
-export async function connect() {
-  return open({
-    filename: "./database.db",
-    driver: sqlite3.Database,
-  });
-}
-
-export async function initDb() {
-  const db = await connect();
-
+export async function createStatusTable(db: Database) {
   const initialStatuses = [
     {
+      id: 1,
       color: "#4aad5b",
       text: "Ativo",
     },
     {
+      id: 2,
       color: "#d13541",
       text: "Inativo",
     },
     {
+      id: 3,
       color: "#d3a710",
       text: "Aguardando ativação",
     },
     {
+      id: 4,
       color: "#d2d2d2",
       text: "Desativado",
     },
@@ -32,7 +26,7 @@ export async function initDb() {
 
   await db.exec(`
     CREATE TABLE IF NOT EXISTS status (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      id INTEGER PRIMARY KEY,
       text TEXT NOT NULL,
       color TEXT NOT NULL
     )
@@ -41,10 +35,10 @@ export async function initDb() {
   for (const status of initialStatuses) {
     await db.run(
       `
-      INSERT INTO status (text, color)
-      VALUES (?, ?)
+      INSERT INTO status (id, text, color)
+      VALUES (?, ?, ?)
     `,
-      [status.text, status.color]
+      [status.id, status.text, status.color]
     );
   }
 }
