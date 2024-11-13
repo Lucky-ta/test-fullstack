@@ -1,14 +1,17 @@
 "use server";
 
 import { Layout, UserForm } from "components";
-import { GetServerSidePropsContext } from "next";
 
 import { api } from "utils";
 
-export default async function EditClient(ctx: GetServerSidePropsContext) {
-  const id = ctx?.params?.id;
+export default async function EditClient({
+  params,
+}: {
+  params: Promise<{ id: string }>;
+}) {
+  const id = params;
 
-  const result = await api.get(`client/${id}`);
+  const result = await api.get(`client/${(await id).id}`);
   const client = result.data;
 
   return (
