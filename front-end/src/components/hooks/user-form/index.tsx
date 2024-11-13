@@ -3,7 +3,8 @@ import { useRouter } from "next/navigation";
 import { Form, Formik } from "formik";
 
 import { schema } from "./schema";
-import { Button, Input, InputMaskField, Select } from "components";
+import { SelectStatus } from "./select-status";
+import { Button, Input, InputMaskField } from "components";
 
 import { IUser } from "interfaces";
 
@@ -76,20 +77,7 @@ export function useUserForm({
               mask="(__)_________"
             />
 
-            <Select
-              name="status"
-              placeholder="Status"
-              options={[
-                {
-                  label: "teste",
-                  value: 1,
-                },
-                {
-                  label: "teste2",
-                  value: 2,
-                },
-              ]}
-            />
+            <SelectStatus />
 
             <div className="actions">
               <Button text={initialData ? "Editar" : "Criar"} type="submit" />

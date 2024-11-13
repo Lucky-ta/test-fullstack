@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { StyledComponentsRegistry } from "../../styled-registry";
+import { QueryClientProviderWrapper } from "settings";
 
 export const metadata: Metadata = {
   title: "UOL - Teste",
@@ -14,7 +15,9 @@ export default function RootLayout({
   return (
     <StyledComponentsRegistry>
       <html lang="en">
-        <body>{children}</body>
+        <body>
+          <QueryClientProviderWrapper>{children}</QueryClientProviderWrapper>
+        </body>
       </html>
     </StyledComponentsRegistry>
   );
