@@ -24,11 +24,11 @@ npm install
 # ou
 npm i
 
-### Passo 3: Crie um arquivo .env
+### Passo 2: Crie um arquivo .env
 No diretório raiz do seu projeto, crie um arquivo .env com a chave da sua API. O conteúdo deve ser algo como:
 api=http://sua-api-url-aqui
 
-### Passo 4: Inicie o servidor de desenvolvimento
+### Passo 3: Inicie o servidor de desenvolvimento
 npm run dev
 
 Isso iniciará o servidor de desenvolvimento, e você poderá acessar o aplicativo em: http://localhost:3030
