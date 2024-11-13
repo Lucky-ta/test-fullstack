@@ -1,8 +1,8 @@
 "use client";
 
+import { ROUTES } from "settings";
 import { Button } from "components";
 
-import { ROUTES } from "settings";
 import { IUser } from "interfaces";
 
 import * as S from "./styles";

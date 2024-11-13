@@ -20,6 +20,7 @@ export const Button = styled("div")`
     font-weight: 600;
     border: 1px solid transparent;
     text-decoration: none;
+    font-size: 16px;
 
     &:hover {
       background: transparent;
@@ -41,6 +42,29 @@ export const Button = styled("div")`
         color: #fff;
         border: 1px solid transparent;
       }
+    }
+  }
+
+  @media only screen and (max-width: 1400px) {
+    button,
+    a {
+      padding: 0 12px;
+    }
+  }
+
+  @media only screen and (max-width: 1024px) {
+    button,
+    a {
+      font-size: 14px;
+      height: 38px;
+    }
+  }
+
+  @media only screen and (max-width: 768px) {
+    button,
+    a {
+      font-size: 14px;
+      height: 36px;
     }
   }
 `;

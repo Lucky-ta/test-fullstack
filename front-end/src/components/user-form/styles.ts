@@ -15,7 +15,7 @@ export const ClientPage = styled("div")`
     max-width: 300px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: clamp(6px, 2.78vw, 20px);
 
     .error {
       font-size: 12px;
@@ -25,8 +25,8 @@ export const ClientPage = styled("div")`
     .actions {
       display: flex;
       justify-content: space-between;
-      gap: 20px;
-      margin-top: 40px;
+      gap: clamp(10px, 2.78vw, 20px);
+      margin-top: clamp(20px, 5.56vw, 40px);
 
       > div {
         width: 100%;

@@ -1,8 +1,7 @@
 "use client";
 
-import { Button, ClientCard, Layout } from "components";
-
 import { ROUTES } from "settings";
+import { Button, ClientCard, Layout } from "components";
 
 import { IUser } from "interfaces";
 
@@ -32,7 +31,9 @@ export function HomePage({ clients }: { clients: IUser[] }) {
           ))}
         </div>
 
-        <p>Exibindo {clients.length} clientes</p>
+        <p>
+          Exibindo <strong>{clients.length}</strong> clientes
+        </p>
       </S.HomePage>
     </Layout>
   );
